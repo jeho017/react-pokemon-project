@@ -1,0 +1,42 @@
+/* .home {
+  text-align: center;
+  margin-top: 50px;
+}
+
+button {
+  background-color: #ff0000;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.dex {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.dashboard,
+.pokemon-list {
+  width: 48%;
+}
+
+.pokemon-cards,
+.pokemon-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.pokemon-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+}
+
+.pokemon-card img {
+  width: 100px;
+  height: 100px;
+} */
