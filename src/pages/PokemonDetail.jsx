@@ -3,15 +3,6 @@ import MOCK_DATA from "./mock";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
-const Detail = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100vh;
-`;
-
 const PokemonDetail = () => {
   const { pokemonId } = useParams();
 
@@ -35,3 +26,12 @@ const PokemonDetail = () => {
 };
 
 export default PokemonDetail;
+
+const Detail = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+`;

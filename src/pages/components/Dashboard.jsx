@@ -1,5 +1,34 @@
-import React from "react";
+import { useContext } from "react";
 import styled from "styled-components";
+import { PokemonContext } from "../PokemonContext";
+
+const formatId = (id) => {
+  return `No.${String(id).padStart(3, "0")}`;
+};
+
+const Dashboard = () => {
+  const { selectedPokemon, handleRemovePokemon } = useContext(PokemonContext);
+
+  return (
+    <DashboardContainer>
+      <h2>나만의 포켓몬</h2>
+      <PokemonCards>
+        {selectedPokemon.map((pokemon) => (
+          <PokemonCardWrapper key={pokemon.id}>
+            <img src={pokemon.img_url} alt={pokemon.korean_name} />
+            <h3>{pokemon.korean_name}</h3>
+            <p>{formatId(pokemon.id)}</p>
+            <RemoveButton onClick={() => handleRemovePokemon(pokemon.id)}>
+              삭제
+            </RemoveButton>
+          </PokemonCardWrapper>
+        ))}
+      </PokemonCards>
+    </DashboardContainer>
+  );
+};
+
+export default Dashboard;
 
 const DashboardContainer = styled.div`
   width: 100%;
@@ -40,29 +69,3 @@ const RemoveButton = styled.button`
   padding: 10px;
   cursor: pointer;
 `;
-
-const formatId = (id) => {
-  return `No.${String(id).padStart(3, "0")}`;
-};
-
-const Dashboard = ({ selectedPokemon, removePokemon }) => {
-  return (
-    <DashboardContainer>
-      <h2>나만의 포켓몬</h2>
-      <PokemonCards>
-        {selectedPokemon.map((pokemon) => (
-          <PokemonCardWrapper key={pokemon.id}>
-            <img src={pokemon.img_url} alt={pokemon.korean_name} />
-            <h3>{pokemon.korean_name}</h3>
-            <p>{formatId(pokemon.id)}</p>
-            <RemoveButton onClick={() => removePokemon(pokemon.id)}>
-              삭제
-            </RemoveButton>
-          </PokemonCardWrapper>
-        ))}
-      </PokemonCards>
-    </DashboardContainer>
-  );
-};
-
-export default Dashboard;

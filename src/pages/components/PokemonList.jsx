@@ -1,6 +1,27 @@
-import React from "react";
+import { useContext } from "react";
 import PokemonCard from "./PokemonCard";
 import styled from "styled-components";
+import { PokemonContext } from "../PokemonContext";
+import MOCK_DATA from "../mock";
+
+const PokemonList = () => {
+  const { handleAddPokemon } = useContext(PokemonContext);
+  const pokemonList = MOCK_DATA;
+
+  return (
+    <PokemonListContainer>
+      {pokemonList.map((pokemon) => (
+        <PokemonCard
+          key={pokemon.id}
+          pokemon={pokemon}
+          addPokemon={handleAddPokemon}
+        />
+      ))}
+    </PokemonListContainer>
+  );
+};
+
+export default PokemonList;
 
 const PokemonListContainer = styled.div`
   display: grid;
@@ -11,19 +32,3 @@ const PokemonListContainer = styled.div`
   border: 1px solid rgb(221, 221, 221);
   border-radius: 10px;
 `;
-
-const PokemonList = ({ pokemonList, addPokemon }) => {
-  return (
-    <PokemonListContainer>
-      {pokemonList.map((pokemon) => (
-        <PokemonCard
-          key={pokemon.id}
-          pokemon={pokemon}
-          addPokemon={addPokemon}
-        />
-      ))}
-    </PokemonListContainer>
-  );
-};
-
-export default PokemonList;
